@@ -2,8 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]  # Trigger deployment only on the 'main' branch
-  workflow_dispatch:  # Manually trigger workflow
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -23,7 +23,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./dist  # Ensure the built `dist` folder is included
+          path: ./dist  # Make sure the built `dist` folder is included
 
   deploy:
     needs: build
@@ -39,4 +39,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          branch: main  # Set to deploy from `main` branch directly
+          branch: main
